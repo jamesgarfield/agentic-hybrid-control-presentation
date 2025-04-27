@@ -1,0 +1,97 @@
+/**
+ * Custom styles for the Agentic Patterns presentation
+ */
+
+.reveal .slides {
+  /* Add a subtle grid background */
+  background-image: linear-gradient(rgba(40, 40, 80, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(40, 40, 80, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.reveal h1 {
+  font-size: 2.5em;
+  color: #a9cce8;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.reveal h2 {
+  color: #94c2e8;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlight keywords */
+.highlight {
+  color: #e8c994;
+  font-weight: bold;
+}
+
+/* Style for pattern names */
+.pattern-name {
+  color: #94e8a9;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Custom boxes for key concepts */
+.concept-box {
+  border: 1px solid rgba(150, 150, 200, 0.5);
+  border-radius: 5px;
+  padding: 10px 20px;
+  background: rgba(40, 40, 80, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+}
+
+/* Custom styling for diagrams */
+.diagram-container {
+  background: rgba(30, 30, 50, 0.5);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for code examples */
+.reveal pre {
+  background: rgba(20, 20, 40, 0.8);
+  border: 1px solid rgba(100, 100, 150, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Fade transitions for fragments */
+.reveal .fade-in {
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.reveal .fade-in.visible {
+  opacity: 1;
+}
+
+/* Custom styling for notes */
+.reveal aside.notes {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #ddd;
+  background: #333;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Specific styles for the different pattern sections */
+.errv-section {
+  background: linear-gradient(135deg, rgba(30, 40, 70, 0.7), rgba(30, 40, 70, 0.3));
+}
+
+.primordial-section {
+  background: linear-gradient(135deg, rgba(40, 50, 80, 0.7), rgba(40, 50, 80, 0.3));
+}
+
+.oracle-section {
+  background: linear-gradient(135deg, rgba(50, 40, 90, 0.7), rgba(50, 40, 90, 0.3));
+}
+
+.statemachine-section {
+  background: linear-gradient(135deg, rgba(40, 50, 80, 0.7), rgba(40, 50, 80, 0.3));
+}

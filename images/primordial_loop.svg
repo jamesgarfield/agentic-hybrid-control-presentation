@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Placeholder for Primordial Loop diagram. Generate using instructions in generate_diagrams.md -->
+  <rect x="50" y="50" width="700" height="500" fill="#1e2040" stroke="#333" stroke-width="2"/>
+  <text x="400" y="300" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Primordial Loop Diagram Placeholder</text>
+  <text x="400" y="350" font-family="Arial" font-size="16" fill="#ccc" text-anchor="middle">Generate using instructions in images/generate_diagrams.md</text>
+</svg>
