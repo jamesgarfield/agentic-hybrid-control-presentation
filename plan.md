@@ -25,13 +25,15 @@ We'll organize the presentation with the following file structure:
    - Use fragments for progressive disclosure of complex concepts
 
 3. **Diagrams & Visuals**
-   - Create flowcharts for:
+   - Implement diagrams directly inline using Mermaid.js:
      - ERRV 4-box visualization
      - Primordial Loop flowchart
+     - MemGPT architecture diagram
      - State Machine diagrams
-   - Use either:
-     - Pre-generated SVG/PNG images
-     - Mermaid.js integration for live rendering
+   - Benefits of this approach:
+     - Single source of truth (diagrams live with presentation)
+     - Easier to maintain and update
+     - No separate diagram generation step needed
 
 ## 3. Content Development Plan
 

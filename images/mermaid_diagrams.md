@@ -1,12 +1,8 @@
-# Diagram Generation Guide
+# SVG Diagram Reference
 
-This guide provides instructions for generating the diagrams needed for the presentation.
+This file documents the SVG diagrams used in the presentation. All diagrams have been pre-generated as static SVG files and are displayed in the slides/main.md file.
 
-## Option 1: Generate using Mermaid.js
-
-You can use the Mermaid Live Editor (https://mermaid.live/) to generate SVG diagrams from the following specifications.
-
-### 1. ERRV Pattern
+## 1. ERRV Pattern
 
 ```mermaid
 graph TD
@@ -20,9 +16,7 @@ graph TD
     style D fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
 ```
 
-Export as SVG and save as `errv.svg` in the images directory.
-
-### 2. Primordial Loop
+## 2. Primordial Loop
 
 ```mermaid
 flowchart TD
@@ -41,9 +35,7 @@ flowchart TD
     style F fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
 ```
 
-Export as SVG and save as `primordial_loop.svg` in the images directory.
-
-### 3. MemGPT Architecture
+## 3. MemGPT Architecture
 
 ```mermaid
 graph TD
@@ -73,9 +65,7 @@ graph TD
     style Tools fill:#4b3d8f,stroke:#333,stroke-width:2px,color:white
 ```
 
-Export as SVG and save as `memgpt.svg` in the images directory.
-
-### 4. State Machine
+## 4. State Machine
 
 ```mermaid
 stateDiagram-v2
@@ -101,43 +91,19 @@ stateDiagram-v2
     ValidateContent --> Conclude: DraftComplete
     
     Conclude --> [*]
-    
-    state Initialize {
-        [*] --> InitProcess
-        InitProcess --> [*]
-    }
-    
-    state Research {
-        [*] --> GatherInfo
-        GatherInfo --> Synthesize
-        Synthesize --> [*]
-    }
 ```
 
-Export as SVG and save as `state_machine.svg` in the images directory.
+## Mermaid Diagram Tips
 
-## Option 2: Use a Diagramming Tool
+1. **Colors**: Use the following colors to maintain consistency:
+   - Primary boxes: `fill:#3a5a97,stroke:#333,stroke-width:2px,color:white`
+   - Secondary boxes: `fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white`
+   - Highlight elements: `fill:#e8ae68,stroke:#333,stroke-width:2px,color:white`
 
-Alternatively, you can use diagramming tools like:
+2. **Text**: Keep text concise for better readability in presentation mode
 
-1. **Draw.io** (https://app.diagrams.net/)
-2. **Lucidchart** (https://www.lucidchart.com/)
-3. **Figma** (https://www.figma.com/)
+3. **Complexity**: Limit diagram complexity to ensure it renders well in presentation mode
 
-Use the specifications in the `diagram_specs.md` file to create these diagrams.
+4. **Flow**: Use clear directional arrows with descriptive labels
 
-## Converting SVG to PNG
-
-If PNG files are preferred for the presentation, convert the SVG files using:
-
-1. Online converters like https://svgtopng.com/
-2. Command line tools:
-   ```bash
-   # Using ImageMagick
-   convert errv.svg errv.png
-   ```
-3. Graphics software like Adobe Illustrator, Inkscape, or GIMP
-
-## Updating Slide Links
-
-After generating the diagrams, you may need to update the file paths in `slides/main.md` to point to either `.svg` or `.png` files, depending on which format you choose.
+5. **Testing**: Test diagrams in presentation mode to verify readability from a distance

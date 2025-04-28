@@ -81,7 +81,6 @@ Note: ERRV is an excellent pattern for improving accuracy of data extraction. It
 
 ## ERRV: 4-Box Visualization
 
-<!-- Create this diagram using the instructions in images/generate_diagrams.md -->
 ![ERRV Pattern](images/errv.svg)
 
 Note: This visualization shows the four components of the ERRV pattern and how they work together.
@@ -98,7 +97,6 @@ Note: Every generic agent has this pattern. It's seen in frameworks like Langcha
 
 ## Primordial Loop: Flowchart
 
-<!-- Create this diagram using the instructions in images/generate_diagrams.md -->
 ![Primordial Loop](images/primordial_loop.svg)
 
 Note: This flowchart shows the basic structure of the primordial loop pattern.
@@ -126,10 +124,9 @@ Note: MemGPT is more than just hybrid control, it represents an ah-ha moment abo
 
 ## MemGPT Workflow
 
-<!-- Create this diagram using the instructions in images/generate_diagrams.md -->
 ![MemGPT Architecture](images/memgpt.svg)
 
-Note: This diagram outlines the basic MemGPT workflow and architecture.
+Note: This diagram outlines the basic MemGPT workflow and architecture, showing the shift from conversation to computation stack paradigm.
 
 
 <!-- STATE MACHINES -->
@@ -153,10 +150,9 @@ Note: End-to-end agent control uses forced tool use to orchestrate going through
 
 ## State Machine Example
 
-<!-- Create this diagram using the instructions in images/generate_diagrams.md -->
 ![State Machine](images/state_machine.svg)
 
-Note: This is a simplified version of a state machine for agent control.
+Note: This is a simplified version of a state machine for agent control. Note the alternating pattern between action and validation states.
 
 
 ## Ping-Pong Control

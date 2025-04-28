@@ -7,28 +7,25 @@ This guide provides step-by-step instructions for finalizing the "Agentic Patter
 - ✅ Basic directory structure created
 - ✅ index.html configured with correct plugins and theme
 - ✅ Main slide content (slides/main.md) created
-- ✅ Custom CSS styles added
-- ✅ Diagram specifications and placeholder SVGs created
+- ✅ Custom CSS styles added for diagrams and general styling
+- ✅ All diagrams implemented as static SVG files
 - ✅ Reference materials for MemGPT prepared
 
 ## Next Steps
 
-### 1. Generate SVG Diagrams
+### 1. Diagram Refinement
 
-Using the specifications in `images/generate_diagrams.md`:
+The diagrams are now implemented as static SVG files:
 
-1. Generate SVG diagrams for:
+1. Check the rendering of all SVG diagrams:
    - ERRV Pattern (4-box visualization)
    - Primordial Loop flowchart
    - MemGPT architecture
    - State Machine
 
-2. Options for generation:
-   - Use Mermaid.js live editor (https://mermaid.live/)
-   - Use a diagramming tool like draw.io
-   - For more complex diagrams, consider a design tool like Figma
-
-3. Replace the placeholder SVGs in the `images/` directory.
+2. If any diagrams need adjustments:
+   - Modify the SVG files directly, or
+   - Regenerate using a diagramming tool of your choice
 
 ### 2. Enhance Slide Content
 

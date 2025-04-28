@@ -6,7 +6,7 @@
    - Created main index.html with proper configuration
    - Set up slides/main.md with complete slide content
    - Created directory structure (images, css, slides, reference)
-   - Created placeholder SVG files for diagrams
+   - Integrated Mermaid.js for inline diagram rendering
 
 2. **Slide Content**
    - Implemented complete slide structure based on req.md
@@ -17,7 +17,8 @@
 3. **Visual Design**
    - Configured night theme for better technical content display
    - Added custom CSS with enhanced styling
-   - Created diagram specifications for consistent visuals
+   - Implemented inline diagrams with Mermaid.js
+   - Styled diagrams to match presentation theme
 
 4. **Documentation**
    - Created detailed diagram generation instructions
@@ -27,9 +28,10 @@
 
 ## Next Steps
 
-1. **Generate Actual Diagrams**
-   - Replace placeholder SVGs with actual diagrams following the specs in images/generate_diagrams.md
-   - Ensure consistent styling with the presentation theme
+1. **Diagram Refinement**
+   - Test diagram rendering across different browsers
+   - Adjust diagram complexity if needed for better clarity
+   - Ensure text is readable in presentation mode
 
 2. **Content Refinement**
    - Add personal introduction details
