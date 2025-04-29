@@ -81,9 +81,9 @@ Note: ERRV is an excellent pattern for improving accuracy of data extraction. It
 
 ## ERRV: 4-Box Visualization
 
-![ERRV Pattern](images/errv.svg)
+![ERRV Pattern](images/errv_horizontal.svg)
 
-Note: This visualization shows the four components of the ERRV pattern and how they work together.
+Note: This visualization shows the four components of the ERRV pattern and how they work together in sequence.
 
 
 ## The Primordial Loop

@@ -5,7 +5,7 @@ This file documents the SVG diagrams used in the presentation. All diagrams have
 ## 1. ERRV Pattern
 
 ```mermaid
-graph TD
+graph LR
     A[Extract] -->|Initial Data| B[Review]
     B -->|Validation Feedback| C[Revise]
     C -->|Refined Data| D[Verify]
