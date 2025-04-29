@@ -70,9 +70,7 @@ graph TD
 ```mermaid
 stateDiagram-v2
     [*] --> Initialize
-    Initialize --> ValidateInitialization
-    ValidateInitialization --> Initialize: InitializationIncomplete
-    ValidateInitialization --> Research: InitializationComplete
+    Initialize --> Research
     
     Research --> ValidateResearch
     
