@@ -420,27 +420,27 @@
           </g>
         </g>
         <g transform="translate(116.609375, 624)" class="edgeLabel">
-          <g transform="translate(-45.6171875, -12)" class="label">
-            <foreignObject height="24" width="91.234375"
+          <g transform="translate(-70.578125, -12)" class="label">
+            <foreignObject height="24" width="200.15625"
               ><div
                 style="
                   display: table-cell;
                   white-space: nowrap;
                   line-height: 1.5;
-                  max-width: 200px;
+                  max-width: 300px;
                   text-align: center;
                 "
                 class="labelBkg"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="edgeLabel"><p>No Tool Calls</p></span>
+                <span class="edgeLabel"><p>Response Tool/Max Loops</p></span>
               </div></foreignObject
             >
           </g>
         </g>
         <g transform="translate(300.5390625, 624)" class="edgeLabel">
-          <g transform="translate(-48.890625, -12)" class="label">
-            <foreignObject height="24" width="97.78125"
+          <g transform="translate(-63.296875, -12)" class="label">
+            <foreignObject height="24" width="126.59375"
               ><div
                 style="
                   display: table-cell;
@@ -452,7 +452,7 @@
                 class="labelBkg"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="edgeLabel"><p>Has Tool Calls</p></span>
+                <span class="edgeLabel"><p>Other Tool Calls</p></span>
               </div></foreignObject
             >
           </g>

@@ -60,3 +60,14 @@ For the MemGPT workflow diagram, emphasize:
    - External function endpoints
    - Memory manager
    - Archival storage
+
+
+## Workflow
+
+* Push message onto FIFO queue
+* Check context size
+   - Over warning threshold? Push warning onto queue
+   - Over context size? Summarize oldest x% of history, add that to the end of the queue
+* Send to LLM
+   - Got warning message? -> StoreInContext
+   - Missing history? -> SearchRecallStorage

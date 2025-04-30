@@ -1,0 +1,109 @@
+%%{init: {
+  'theme': 'dark',
+  'themeVariables': { 
+    'primaryColor': '#597ad9', 
+    'edgeLabelBackground':'#333', 
+    'lineColor': '#FFFFFF'
+  },
+  'flowchart': {
+    'diagramPadding': 0,
+    'nodeSpacing': 10,
+    'rankSpacing': 20,
+    'padding': 0
+  }
+}}%%
+flowchart TD
+    %% Styling
+    classDef system fill:#8b3d91,stroke:#333,stroke-width:2px,color:white
+    classDef user fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
+    classDef assistant fill:#2d882d,stroke:#333,stroke-width:2px,color:white
+    classDef packet fill:none,stroke:#FFFFFF,stroke-width:2px,stroke-dasharray: 5 5
+    linkStyle default stroke:#FFFFFF,stroke-width:2px
+    
+    %% Main Packet
+    subgraph Packet [Generative Computation]
+        direction TB
+        
+        subgraph SystemPrompt [System Prompt]
+            direction LR
+            
+            subgraph LeftCol [ ]
+                direction TB    
+                SysContent2["&lt;working_context&gt;{
+&nbsp;&nbsp;'company': 'Hudsucker', 
+&nbsp;&nbsp;'timeframe': '12 months'
+}&lt;/working_context&gt;"]
+                SysContent3["&lt;user_preferences&gt;{
+&nbsp;&nbsp;'tone': 'casual', 
+&nbsp;&nbsp;'emoji_level': 11, 
+&nbsp;&nbsp;'name': 'Norville Barnes'
+}&lt;/user_preferences&gt;"]
+            end
+            
+            subgraph RightCol [ ]
+                direction TB
+                SysContent["&lt;persona&gt;You are a helpful AI assistant...&lt;/persona&gt;"]
+                SysContent4["&lt;system_time&gt;'2024-01-01 12:00:00'&lt;/system_time&gt;"]
+            end
+
+        end
+        
+        subgraph Messages [Computation Stack]
+            direction TB
+            
+            subgraph UserMsg1 [ ]
+                direction LR
+                UserContent1["text: &lt;historical_summary&gt;...&lt;/historical_summary&gt;"]
+            end
+
+            subgraph UserMsg2 [ ]
+                direction LR
+                UserContent2["text: What's the EBITDA for the last 12 months?"]
+            end
+            
+            subgraph AssistantMsg1 [ ]
+                direction LR
+                AssistContent1["tool_use: QueryDocuments { query: 'EBITDA', interval: '-12 months'} "]
+            end
+            
+            subgraph UserMsg3 [ ]
+                direction LR
+                UserContent3["tool_response: 340000"]
+            end
+
+            subgraph AssistantMsg2 [ ]
+                direction LR
+                AssistContent2["text: The EBITDA for the last 12 months is 340000"]
+            end
+        end
+    end
+    
+    %% Connect in order
+    SystemPrompt --> UserMsg1
+    UserMsg1 --> UserMsg2
+    UserMsg2 --> AssistantMsg1  
+    AssistantMsg1 --> UserMsg3
+    UserMsg3 --> AssistantMsg2
+    %% Apply styles
+    style Packet fill:none,stroke:#FFFFFF,stroke-width:2px,stroke-dasharray: 5 5,padding:5px
+    style SystemPrompt fill:none,stroke:#8b3d91,stroke-width:2px,padding:5px,margin:0
+    style Messages fill:none,stroke:#FFFFFF,stroke-width:1px,stroke-dasharray: 3 3,padding:5px,margin:0
+    style UserMsg1 fill:none,stroke:#3a5a97,stroke-width:1px,padding:50px,margin:50px
+    style AssistantMsg1 fill:none,stroke:#2d882d,stroke-width:1px,padding:2px,margin:0
+    style UserMsg2 fill:none,stroke:#3a5a97,stroke-width:1px,padding:2px,margin:0
+    style UserMsg3 fill:none,stroke:#3a5a97,stroke-width:1px,padding:2px,margin:0
+    style AssistantMsg2 fill:none,stroke:#2d882d,stroke-width:1px,padding:2px,margin:0
+    style LeftCol fill:none,stroke:none,stroke-width:0px,padding:0,margin:0,padding:0px,margin:0
+    style RightCol fill:none,stroke:none,stroke-width:0px,padding:0,margin:0,padding:0px,margin:0
+    
+    %% Style individual nodes
+    
+    style SysContent fill:#8b3d91,stroke:#333,stroke-width:2px,color:white,margin:0,padding:5px
+    style SysContent2 fill:#8b3d91,stroke:#333,stroke-width:2px,color:white,text-align:left,margin:0,padding:5px
+    style SysContent3 fill:#8b3d91,stroke:#333,stroke-width:2px,color:white,text-align:left,margin:0,padding:5px
+    style SysContent4 fill:#8b3d91,stroke:#333,stroke-width:2px,color:white,text-align:left,margin:0,padding:5px
+    style UserContent1 fill:#3a5a97,stroke:#333,stroke-width:2px,color:white,margin:5px,padding:5px
+    style AssistContent1 fill:#2d882d,stroke:#333,stroke-width:2px,color:white,margin:5px,padding:5px
+    style UserContent2 fill:#3a5a97,stroke:#333,stroke-width:2px,color:white,margin:5px,padding:5px
+    style UserContent3 fill:#3a5a97,stroke:#333,stroke-width:2px,color:white,margin:5px,padding:5px
+    style AssistContent2 fill:#2d882d,stroke:#333,stroke-width:2px,color:white,margin:5px,padding:5px

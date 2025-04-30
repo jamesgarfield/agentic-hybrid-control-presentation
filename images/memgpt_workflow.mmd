@@ -1,0 +1,56 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#597ad9', 'edgeLabelBackground':'#333', 'lineColor': '#FFFFFF' }}}%%
+flowchart TD
+    %% Styling
+    classDef blue fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
+    classDef lightblue fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
+    classDef darkgray fill:#333,stroke:#333,stroke-width:2px,color:white
+    classDef green fill:#2d882d,stroke:#333,stroke-width:2px,color:white
+    classDef purple fill:#8b3d91,stroke:#333,stroke-width:2px,color:white
+    linkStyle default stroke:#FFFFFF,stroke-width:2px
+    
+    %% Nodes
+    UserInput[Push Message onto FIFO Queue]:::blue
+    ContextCheck{Context Window Size Check}:::darkgray
+    Summarize[Summarize Oldest Messages]:::lightblue
+    Archive[Message Archive]:::blue
+    Feed[LLM]:::green
+    AddWarning[Add Warning Message to Queue]:::blue
+    
+    %% Function System
+    FuncCheck{Function Call?}:::darkgray
+    OtherTools[Other Tools]:::blue
+    WorkingContextFunc[Working Context]:::green
+    RecallStorageFunc[Recall Storage]:::green
+    
+    %% Main Process Flow
+    UserInput --> ContextCheck
+    UserInput --> MemorySystem
+    ContextCheck -->|Fits in Context| Feed
+    ContextCheck -->|Over Warning Threshold| AddWarning
+    ContextCheck -->|Over Limit| Summarize
+    AddWarning --> Feed
+    Summarize --> Feed
+    Feed --> FuncCheck
+    
+
+    %% Function Flow
+    FuncCheck -->|Had Warning| WorkingContextFunc
+    FuncCheck -->|Missing Memory| RecallStorageFunc
+    FuncCheck -->OtherTools
+
+    RecallStorageFunc -->|Retrieve Archived Memory| MemorySystem
+    MemorySystem -->|Found Memories| RecallStorageFunc
+    
+    %% Connection from Function System back to UserInput
+    FunctionSystem --> UserInput
+    
+    %% Add explanatory notes
+    subgraph MemorySystem [External Memory System]
+        Archive
+    end
+    
+    subgraph FunctionSystem [Memory Function Calls]
+        WorkingContextFunc
+        RecallStorageFunc
+        OtherTools
+    end

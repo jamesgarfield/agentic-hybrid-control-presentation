@@ -1,0 +1,64 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#597ad9', 'edgeLabelBackground':'#333', 'lineColor': '#FFFFFF' }}}%%
+flowchart TD
+    %% Styling
+    classDef system fill:#8b3d91,stroke:#333,stroke-width:2px,color:white
+    classDef user fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
+    classDef assistant fill:#2d882d,stroke:#333,stroke-width:2px,color:white
+    classDef packet fill:none,stroke:#FFFFFF,stroke-width:2px,stroke-dasharray: 5 5
+    linkStyle default stroke:#FFFFFF,stroke-width:2px
+    
+    %% Main Packet
+    subgraph Packet [Anatomy of Conversation]
+        direction TB
+        
+        subgraph SystemPrompt [System Prompt]
+            direction LR
+            SysContent["You are a helpful AI assistant..."]
+        end
+        
+        subgraph Messages [Conversation History]
+            direction TB
+            
+            subgraph UserMsg1 [User Message]
+                direction LR
+                UserContent1["text: What's the EBITDA for the last 12 months?"]
+            end
+            
+            subgraph AssistantMsg1 [Assistant Message]
+                direction LR
+                AssistContent1["tool_use: QueryDocuments { query: 'EBITDA', interval: '-12 months'} "]
+            end
+            
+            subgraph UserMsg2 [User Message]
+                direction LR
+                UserContent2["tool_response: 340000"]
+            end
+
+            subgraph AssistantMsg2 [Assistant Message]
+                direction LR
+                AssistContent2["text: The EBITDA for the last 12 months is 340000"]
+            end
+        end
+    end
+    
+    %% Connect in order
+    SystemPrompt --> UserMsg1
+    UserMsg1 --> AssistantMsg1
+    AssistantMsg1 --> UserMsg2
+    UserMsg2 --> AssistantMsg2
+    %% Apply styles
+    style Packet fill:none,stroke:#FFFFFF,stroke-width:2px,stroke-dasharray: 5 5
+    style SystemPrompt fill:none,stroke:#8b3d91,stroke-width:2px
+    style Messages fill:none,stroke:#FFFFFF,stroke-width:1px,stroke-dasharray: 3 3
+    style UserMsg1 fill:none,stroke:#3a5a97,stroke-width:1px
+    style AssistantMsg1 fill:none,stroke:#2d882d,stroke-width:1px
+    style UserMsg2 fill:none,stroke:#3a5a97,stroke-width:1px
+    style AssistantMsg2 fill:none,stroke:#2d882d,stroke-width:1px
+    
+    %% Style individual nodes
+    
+    style SysContent fill:#8b3d91,stroke:#333,stroke-width:2px,color:white
+    style UserContent1 fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
+    style AssistContent1 fill:#2d882d,stroke:#333,stroke-width:2px,color:white
+    style UserContent2 fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
+    style AssistContent2 fill:#2d882d,stroke:#333,stroke-width:2px,color:white

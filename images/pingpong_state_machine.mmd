@@ -1,0 +1,30 @@
+stateDiagram-v2
+    [*] --> Initialize
+    Initialize --> Research
+    
+    Research --> ValidateResearch
+    
+    ValidateResearch --> Research: MoreResearchNeeded
+    ValidateResearch --> OutlineDraft: ResearchComplete
+    
+    OutlineDraft --> ValidateOutline
+    
+    ValidateOutline --> OutlineDraft: OutlineNeedsRevision
+    ValidateOutline --> Research: OutlineNeedsResearch
+    ValidateOutline --> Writing: OutlineApproved
+    
+    Writing --> ValidateContent
+    
+    ValidateContent --> Writing: ContentNeedsRevision
+    ValidateContent --> Conclude: DraftComplete
+    
+    Conclude --> [*]
+    
+    style Initialize fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
+    style Research fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
+    style ValidateResearch fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
+    style OutlineDraft fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
+    style ValidateOutline fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
+    style Writing fill:#5a7dbb,stroke:#333,stroke-width:2px,color:white
+    style ValidateContent fill:#e8ae68,stroke:#333,stroke-width:2px,color:white
+    style Conclude fill:#3a5a97,stroke:#333,stroke-width:2px,color:white
