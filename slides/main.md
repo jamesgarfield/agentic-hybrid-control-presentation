@@ -1,6 +1,5 @@
 # Agentic Patterns and Hybrid Mechanisms of Control
 
-<!-- .slide: data-background="rgb(30, 30, 60)" -->
 
 
 ---
@@ -19,8 +18,11 @@ Note: Brief introduction about myself and my work with EnFi.
 ## Audience Survey
 
 * Founders?
-* Engineers?
+* Engineers & Data Scientists?
 * Product?
+* Sales and Marketing?
+* Ops?
+
 
 
 
@@ -28,6 +30,7 @@ Note: Brief introduction about myself and my work with EnFi.
 
 ## AI Use
 
+* ChatGPT?
 * Chatbots? 
 * Tools?
 * Agents?
@@ -49,7 +52,7 @@ Note: Brief introduction about myself and my work with EnFi.
 
 
 ## Hybrid Control
-#### OR How I learned to stop worrying and love LLMs
+### OR: How I learned to stop worrying and love LLMs
 * Using an LLM is letting go of control
 * Design Patterns as a coping mechanism
 * How to effectivly let go of and regain control
@@ -142,23 +145,31 @@ Note: ERRV is an excellent pattern for improving accuracy of data extraction. It
 
 ```ts
 `
-Identify all the US zipcodes in the source text. 
-Zip-codes can either be 5 digits or 5+4 digits
+Identify all the users in the source text. 
 `
 ```
 
 ```json
 {
-  "type": "object",
-  "properties": {
-    "zipcodes": {
-      "type": "array",
-      "items": {
-        "type": "string"
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The user's full name"
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "The user's email address"
+      },
+      "role": {
+        "type": "string",
+        "description": "The user's role in the system"
       }
-    }
-  },
-  "required": ["zipcodes"]
+    },
+  }
 }
 ```
 
@@ -166,27 +177,57 @@ Zip-codes can either be 5 digits or 5+4 digits
 
 ## Review
 
-```ts
-`
-Identify all the US zipcodes in the source text. 
-Zip-codes can either be 5 digits or 5+4 digits
-`
-```
-
 ```json
 {
   "type": "object",
   "properties": {
-    "zipcodes": {
+    "invalid_emails": {
       "type": "array",
+      "description": "Array of invalid email values",
       "items": {
         "type": "string"
-      }
+      },
+    },
+    "invalid_roles": {
+      "type": "array",
+      "description": "Array of invalid role values",
+      "items": {
+        "type": "string"
+      },
     }
   },
-  "required": ["zipcodes"]
 }
 ```
+
+
+--
+
+## Revise
+
+```ts
+`
+Your goal is to correct extracted data from source text. 
+Review the source data, initial extraction, and identified errors.
+Provide a corrected extraction after review
+<source_text>
+%s
+<source_text>
+<initial_extraction>
+%s
+</initial_extraction>
+<errors>
+%s
+</errors>
+`
+```
+
+--
+
+## Verify
+
+* See if values have changed
+* Run deterministic checks
+* LLM as a Judge
 
 ---
 
@@ -251,7 +292,7 @@ func (o Oracle) Ask(p llm.Prompt) (json.RawMessage, error) {
 * More than just hybrid control
 * From "conversation" to "computation stack"
 
-Note: MemGPT is more than just hybrid control, it represents an ah-ha moment about getting out of the "conversation" paradigm and into "computation stack" mode.
+https://arxiv.org/abs/2310.08560
 
 --
 
@@ -259,7 +300,6 @@ Note: MemGPT is more than just hybrid control, it represents an ah-ha moment abo
 
 ![MemGPT Workflow](images/memgpt_workflow.svg)
 
-Note: This diagram outlines the basic MemGPT workflow and architecture, showing the shift from conversation to computation stack paradigm.
 
 
 --
@@ -279,10 +319,6 @@ Note: This diagram outlines the basic MemGPT workflow and architecture, showing 
 
 ## State Machines
 ### Everything Old is New Again
-
-<!-- .slide: data-background="rgb(40, 50, 80)" -->
-
-Note: State machines represent an established pattern that's finding new applications in LLM agent control.
 
 
 --
