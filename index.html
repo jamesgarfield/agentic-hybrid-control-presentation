@@ -48,5 +48,50 @@
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
 		</script>
+	<!-- Header/footer elements for both presentation and print-pdf modes -->
+	<style type="text/css">
+		#footer-left {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+		}
+		#footer-left img {
+			width: 180px;
+			height: auto;
+			background: none !important;
+			box-shadow: none !important;
+			padding: 0 !important;
+			border-radius: 0 !important;
+		}
+	</style>
+
+	<!-- Hidden elements that will be cloned to each slide -->
+	<div id="hidden" style="display:none;">
+		<div id="footer-left">
+			<img src="/images/enfi-white-logo.png" alt="EnFi Logo">
+		</div>
+	</div>
+
+	<script>
+		// Wait for Reveal to be fully loaded
+		Reveal.addEventListener('ready', function() {
+			var footerContent = document.getElementById('footer-left');
+			
+			// For PDF export
+			if (window.location.search.match(/print-pdf/gi)) {
+				// Add to each slide background
+				document.querySelectorAll('.slide-background').forEach(function(slide) {
+					var clone = footerContent.cloneNode(true);
+					slide.appendChild(clone);
+				});
+			} else {
+				// For regular presentation mode, add the logo to the main reveal container
+				var clone = footerContent.cloneNode(true);
+				clone.style.position = 'fixed'; // Fixed positioning for normal presentation
+				clone.style.zIndex = '100';     // Keep above other elements
+				document.querySelector('.reveal').appendChild(clone);
+			}
+		});
+	</script>
 	</body>
 </html>
